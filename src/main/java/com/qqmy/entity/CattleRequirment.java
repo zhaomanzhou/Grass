@@ -2,14 +2,13 @@ package com.qqmy.entity;
 
 public class CattleRequirment {
     private double energy;
+    private double protein;
     private double ga;
     private double lin;
-    private double salt;
-    private double protein;
-    private double laiAnSuan;
-    private double danAnSuan;
     private double na;
     private double cl;
+    private double laiAnSuan;
+    private double danAnSuan;
 
     public static CattleRequirment getRequirment(Cattle cattle)
     {
@@ -57,9 +56,8 @@ public class CattleRequirment {
         double salt = 0;
         salt += (cattle.getWeight()/100)*5;
         salt += cattle.getChanNaiLiang()*1.75;
-
-        requirment.setSalt(salt);
-
+        requirment.setNa(salt*(23/58.5));
+        requirment.setCl(salt*(35.5/58.5));
         //蛋白质
         double protein = 0;
         protein += 5.6*cattle.getWeight();
@@ -78,12 +76,22 @@ public class CattleRequirment {
         this.laiAnSuan = protein*0.052;
         this.danAnSuan = protein*0.013;
     }
+
+
     public double getEnergy() {
         return energy;
     }
 
     public void setEnergy(double energy) {
         this.energy = energy;
+    }
+
+    public double getProtein() {
+        return protein;
+    }
+
+    public void setProtein(double protein) {
+        this.protein = protein;
     }
 
     public double getGa() {
@@ -102,29 +110,46 @@ public class CattleRequirment {
         this.lin = lin;
     }
 
-    public double getSalt() {
-        return salt;
+    public double getNa() {
+        return na;
     }
 
-    public void setSalt(double salt) {
-        this.salt = salt;
+    public void setNa(double na) {
+        this.na = na;
     }
 
-    public double getProtein() {
-        return protein;
+    public double getCl() {
+        return cl;
     }
 
-    public void setProtein(double protein) {
-        this.protein = protein;
+    public void setCl(double cl) {
+        this.cl = cl;
     }
-    public void decreaseProtein(double num)
-    {
-        this.protein -= num;
+
+    public double getLaiAnSuan() {
+        return laiAnSuan;
+    }
+
+    public void setLaiAnSuan(double laiAnSuan) {
+        this.laiAnSuan = laiAnSuan;
+    }
+
+    public double getDanAnSuan() {
+        return danAnSuan;
+    }
+
+    public void setDanAnSuan(double danAnSuan) {
+        this.danAnSuan = danAnSuan;
     }
 
     public void decreaseEnergy(double num)
     {
         this.energy -= num;
+    }
+
+    public void decreaseProtein(double num)
+    {
+        this.protein -= num;
     }
 
     public void decreaseGa(double num)
@@ -137,31 +162,6 @@ public class CattleRequirment {
         this.ga -= num;
     }
 
-    public void decreaseSalt(double num)
-    {
-        this.lin -= num;
-    }
-
-    public double getLaiAnSuan()
-    {
-        return laiAnSuan;
-    }
-
-    public void setLaiAnSuan(double laiAnSuan)
-    {
-        this.laiAnSuan = laiAnSuan;
-    }
-
-    public double getDanAnSuan()
-    {
-        return danAnSuan;
-    }
-
-    public void setDanAnSuan(double danAnSuan)
-    {
-        this.danAnSuan = danAnSuan;
-    }
-
     public void decreaseLaiAnSuan(double num)
     {
         this.laiAnSuan -= num;
@@ -170,5 +170,32 @@ public class CattleRequirment {
     public void decreaseDanAnSuan(double num)
     {
         this.danAnSuan -= num;
+    }
+
+    public String toString1()
+    {
+        return
+                energy +
+                "," + protein +
+                "," + ga +
+                "," + lin +
+                "," + na +
+                "," + cl +
+                "," + laiAnSuan +
+                "," + danAnSuan ;
+    }
+
+    @Override
+    public String toString() {
+        return "CattleRequirment{" +
+                "energy=" + energy +
+                ", protein=" + protein +
+                ", ga=" + ga +
+                ", lin=" + lin +
+                ", na=" + na +
+                ", cl=" + cl +
+                ", laiAnSuan=" + laiAnSuan +
+                ", danAnSuan=" + danAnSuan +
+                '}';
     }
 }

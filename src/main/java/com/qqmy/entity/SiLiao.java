@@ -151,4 +151,32 @@ public class SiLiao {
     {
         DigMet = digMet;
     }
+
+    public String toString1() {
+        return
+                price +
+                "," + protein +
+                "," + ME +
+                "," + Ca +
+                "," + lin +
+                "," + Na +
+                "," + Cl +
+                "," + DigLys +
+                "," + DigMet;
+    }
+
+    @Override
+    public String toString() {
+        return /*"SiLiao{" +
+                "price=" + price +
+                ", protein=" + protein +
+                ", ME=" + ME +
+                ", Ca=" + Ca +
+                ", lin=" + lin +
+                ", Na=" + Na +
+                ", Cl=" + Cl +
+                ", DigLys=" + DigLys +
+                ", DigMet=" + DigMet +
+                '}'*/"";
+    }
 }

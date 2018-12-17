@@ -86,7 +86,7 @@
 
 
             <!--需要区分是员工修改还是添加；-->
-            <form action="queryFormula" method="post">
+            <form action="/queryFormular" method="post" th:action="@{/queryFormular}">
                 <!--发送put请求修改员工数据-->
                 <!--
                 1、SpringMVC中配置HiddenHttpMethodFilter;（SpringBoot自动配置好的）
